@@ -12,12 +12,19 @@
     nightDayHandler(this);
   ">
   <ol>
-    <li><a href="1.html">HTML</a></li>
-    <li><a href="2.html">CSS</a></li>
+    <li><a onclick="document.querySelector('article').innerHTML = '<h2>HTML</h2>HTML is....'; //이 코드는 article 태그로 데이터를 집어넣는 코드이다.
+    //그래서 HTML을 클릭하고 브라우저를 통해 코드를 살펴보면 article 태그 내에 저 innerHTML 이후의 내용이 들어가 있게 된다.
+      ">HTML</a></li>
+    <li><a onclick="document.querySelector('article').innerHTML = '<h2>CSS</h2>CSS is....';"">CSS</a></li>
     <li><a href="3.html">JavaScript</a></li>
   </ol>
+  <!--
   <h2>WEB</h2>
   <p>The World Wide Web (abbreviated WWW or the Web) is an information space where documents and other web resources are identified by Uniform Resource Locators (URLs), interlinked by hypertext links, and can be accessed via the Internet.[1] English scientist Tim Berners-Lee invented the World Wide Web in 1989. He wrote the first web browser computer program in 1990 while employed at CERN in Switzerland.[2][3] The Web browser was released outside of CERN in 1991, first to other research institutions starting in January 1991 and to the general public on the Internet in August 1991.
   </p>
+  이 부분이 웹서버가 동적으로 보내주는 웹브라우저의 일부분이다. 그리고 이 역할을 ajax가 한다.
+  현재 위 코드는 js로 임의로 정적으로 이미 가져와져 있는 상태에 해당한다. 이를 웹서버에서 동적으로 가져오는 것으로 바꾼다.
+  -->
+  <article></article>
 </body>
 </html>
