@@ -12,6 +12,7 @@
     nightDayHandler(this);
   ">
   <ol>
+    <!--
     <li><a onclick="
           fetch('html').then(function(response){
             response.text().then(function(text){
@@ -37,6 +38,12 @@
             })
           })
       ">JavaScript</a></li>
+    -->
+    <!--위 코드는 코드 중복이 너무 심하여 아래의 script 태그에서 함수에 대한 리팩토링을 진행함-->
+
+    <li><a onclick="fetchpage('html')">HTML</a></li>
+    <li><a onclick="fetchpage('css')">CSS</a></li>
+    <li><a onclick="fetchpage('javascript')">JavaScript</a></li>
   </ol>
   <!--
   <h2>WEB</h2>
@@ -46,5 +53,16 @@
   현재 위 코드는 js로 임의로 정적으로 이미 가져와져 있는 상태에 해당한다. 이를 웹서버에서 동적으로 가져오는 것으로 바꾼다.
   -->
   <article></article>
+  <script>
+    function fetchPage(name){
+      fetch(name).then(function(response){
+        response.text().then(function(text){
+          document.querySelector('article').innerHTML = text;
+        })
+      });
+    }
+    //위 함수는 저 위의 각 태그마다 중복적으로 들어가는 함수에 대해 중복을 줄이고자 하나의 함수로 만들어
+    //매 태그마다 재사용하는 것으로 중복을 줄이기 위해 만들어진 것이다.
+  </script>
 </body>
 </html>
