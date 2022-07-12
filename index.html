@@ -12,11 +12,31 @@
     nightDayHandler(this);
   ">
   <ol>
-    <li><a onclick="document.querySelector('article').innerHTML = '<h2>HTML</h2>HTML is....'; //이 코드는 article 태그로 데이터를 집어넣는 코드이다.
+    <li><a onclick="
+          fetch('html').then(function(response){
+            response.text().then(function(text){
+                document.querySelector('article').innerHTML = text;
+            })
+          });
+    //document.querySelector('article').innerHTML = '<h2>HTML</h2>HTML is....'; 
+    //이 코드는 article 태그로 데이터를 집어넣는 코드이다.
     //그래서 HTML을 클릭하고 브라우저를 통해 코드를 살펴보면 article 태그 내에 저 innerHTML 이후의 내용이 들어가 있게 된다.
       ">HTML</a></li>
-    <li><a onclick="document.querySelector('article').innerHTML = '<h2>CSS</h2>CSS is....';"">CSS</a></li>
-    <li><a href="3.html">JavaScript</a></li>
+    <li><a onclick="
+    //document.querySelector('article').innerHTML = '<h2>CSS</h2>CSS is....';
+          fetch('css').then(function(response){
+            response.text().then(function(text){
+                document.querySelector('article').innerHTML = text;
+            })
+          })
+    ">CSS</a></li>
+    <li><a onclick="
+          fetch('javascript').then(function(response){
+            response.text().then(function(text){
+                document.querySelector('article').innerHTML = text;
+            })
+          })
+      ">JavaScript</a></li>
   </ol>
   <!--
   <h2>WEB</h2>
