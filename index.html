@@ -11,7 +11,7 @@
   <input id="night_day" type="button" value="night" onclick="
     nightDayHandler(this);
   ">
-  <ol>
+  <ol id="nav">
     <!--
     <li><a onclick="
           fetch('html').then(function(response){
@@ -41,10 +41,15 @@
     -->
     <!--위 코드는 코드 중복이 너무 심하여 아래의 script 태그에서 함수에 대한 리팩토링을 진행함-->
 
+    <!--
     <li><a href="#!html" onclick="fetchpage('html')">HTML</a></li>
     <li><a href="#!css" onclick="fetchpage('css')">CSS</a></li>
     <li><a href="#!javascript" onclick="fetchpage('javascript')">JavaScript</a></li>
-    <!--#!를 통해서 해당 페이지에 대한 url에 id값을 부여하여 서로 구분할 수 있게 해준다.-->
+    #!를 통해서 해당 페이지에 대한 url에 id값을 부여하여 서로 구분할 수 있게 해준다.
+    이것은 데이터에 해당하는 것으로 따로 list라는 파일에 저장하도록 하여 데이터와 코드를 분리할 수 있게 한다.
+    그리하여 우리는 이제 index.html이 아닌 데이터 파일만을 수정하면 된다.
+    -->
+    
   </ol>
   <!--
   <h2>WEB</h2>
@@ -73,6 +78,15 @@
       fetchPage('welcome');
       //hash값이 없으면 welcome 페이지를 보여줘라 라는 뜻이다.
     }
+
+    fetch('list').then(function(response){
+        response.text().then(function(text){
+          document.querySelector('#nav').innerHTML = text;
+        })
+    });
+    //이 함수는 list라는 데이터 파일을 불러와서 웹페이지에 띄워주는 함수이다.
+    //이때 querySelector에 단순히 nav를 파라미터로 넣으면 nav라는 태그를 찾아간다.
+    //하지만 우리가 찾는 것은 id값이 nav인 것을 찾으므로 앞에 #을 넣어서 id값을 찾는 것임을 알려준다.
   </script>
 </body>
 </html>
